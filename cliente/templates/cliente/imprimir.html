@@ -1,0 +1,46 @@
+{% extends "index.html" %}
+{% load widget_tweaks %}
+ {% block body %}
+
+      <p>
+      
+      <div class="data" style="float:right"><b>Data</b>: {{data}}</div>
+      
+      <div class="imprimi" style="float:right">
+      	<form>
+     <!--<button type="button" class="btn btn-info" onclick="window.print();">Imprimir Pedido</button>-->
+        </form>
+      </div>
+     
+      <table class="table">
+      <thead>
+        <tr class="table-active">
+          <th>Qtd.Itens</th>
+          <th>Descrição</th>
+          <th>Qtde</th>
+          <th>Preço</th>
+          <th>Total</th>
+          <th colspan="2" style="text-align:center">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for venda in vendas %}
+    
+        <tr class="bg-white" style="color:#000;">
+        <td class="table-primary">{{ venda.id }}</td>
+        <td class="table-primary">{{ venda.cadastroproduto }}</td>
+        <td class="table-primary">{{ venda.quantidade }}</td>
+        <td class="table-primary">R$ {{ venda.preco_compra }}</td>
+        <td class="table-primary">{{ venda.media }}</td>
+        <td class="table-primary"><a href="{% url 'edit_pedido' venda.id%}" class="btn btn-primary btn-xs">Editar</a></td> 
+        <td class="table-primary"><a href="{% url 'delete_pedido' venda.id %}" class="btn btn-danger btn-xs">Excluir</a></td>
+      </tr>
+        
+      {% endfor %}
+        
+      </tbody>
+    </table>
+    <a href="{% url 'home' %}" class="btn btn-info btn-xs">Voltar</a>
+    {% endblock body %}
+
+ 

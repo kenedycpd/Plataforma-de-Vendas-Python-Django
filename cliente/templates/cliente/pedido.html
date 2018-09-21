@@ -1,0 +1,34 @@
+{% extends "index.html" %}
+{% load widget_tweaks %}
+{% block body %}
+<br>
+
+	<form method="post">
+		
+			{% csrf_token %}
+			<div class="form-group">
+	    	<label for="{{form.cadastrocliente.id_for_label}}">Selecionar Cliente:</label>
+	    	{{ form.cadastrocliente|add_class:"form-control" }}
+	    	</div>
+
+	    	<div class="form-group">
+	    	<label for="{{form.cadastroproduto.id_for_label}}">Selecionar Produto:</label>
+	    	{{ form.cadastroproduto|add_class:"form-control" }}
+	    	</div>
+
+	    	<div class="form-group">
+	    	<label for="{{form.quantidade.id_for_label}}">Digite Quantidade:</label>
+	    	{{ form.quantidade|add_class:"form-control" }}
+	    	</div>
+	    	<div class="form-group">
+	    	<label for="{{form.preco_compra.id_for_label}}">Digite Preço:</label>
+	    	{{ form.preco_compra|add_class:"form-control" }}
+	    	</div>
+	    	
+	    	<div class="form-group">
+    		<button class="btn btn-primary" type="submit">Salvar Pedido</button>
+    		<button class="btn btn-danger" type="submit">Cancelar Pedido</button>
+		    <a href="{% url 'home' %}" class="btn btn-info btn-xs">Voltar</a>
+	</form>
+	
+{% endblock body %}

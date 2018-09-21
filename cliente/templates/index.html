@@ -1,0 +1,95 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Jarbas Força de Vendas - Software</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+   <link  href="{% static 'bootstrap/css/font-awesome.min' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/logo-nav.css'%}" rel="stylesheet">
+
+  </head>
+
+  <body>
+   <style type="text/css" media="screen">
+     .tabela{
+      background-color: orange;
+      border-radius: 10%;
+       margin-left: 22px;
+     }
+     .log{
+      margin-left: 22%;
+      margin-top: 15%;
+      
+     }
+   </style>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          <h6>Jarbas Força de Vendas - Software</h6>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href=""></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{%url 'produto' %}">Tabela Produtos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{%url 'pedido' %}">Pedido de Vendas</a>
+            </li><li class="nav-item">
+              <a class="nav-link" href="{% url 'imprimir' %}">Vizualizar Pedido</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+
+    <div class="container">
+    {% block body %}
+    <br>
+    
+    <div class="log">
+       
+        <a href="{% url 'produto' %}"><img src="static/tabela.png" width="125" height="125" class="tabela" title="Tabela de Produtos"></a>
+     
+        <a href="{% url 'pedido' %}"><img src="static/venda.png" width="125" height="125" class="tabela" title="Pedido de Venda"></a>
+      
+        <a href="{% url 'imprimir' %}"><img src="static/olho.png" width="125" height="125" class="tabela" title="Vizualizar Pedido de Venda"></a>
+
+        </div>
+    {% endblock body %}
+    </div>
+</di>
+    <!-- /.container -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'jquery/jquery.min.js'%}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+
+  </body>
+
+</html>
